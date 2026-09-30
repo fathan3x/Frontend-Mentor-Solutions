@@ -23,6 +23,12 @@ function RouteComponent() {
               [QR CODE COMPONENT]
             </Link>
           </div>
+          <div className="space-x-2">
+            <p className="inline">01</p>
+            <Link to="/blog-preview-card" className={cn(style["hover-link"])}>
+              [BLOG PREVIEW CARD]
+            </Link>
+          </div>
         </section>
       </main>
     </div>

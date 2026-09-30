@@ -1,4 +1,3 @@
-import type { Breadcrumb } from "#/components/shared/header";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { cn } from "cn";
 import "@fontsource-variable/outfit";
@@ -22,18 +21,16 @@ function RouteComponent() {
         "min-w-screen min-h-screen dark:text-neutral-950",
         style["bg-slate-300"],
       )}
+      style={{ fontFamily: "Outfit Variable" }}
     >
-      <header className="p-6 flex items-center gap-4 font-black">
+      <header className="p-6 flex items-center gap-2 font-black">
         <Link to="/" className={cn(style["hover-link"])}>
           [/]
         </Link>
         <p>&gt;</p>
         <p className={cn(style["active-link"])}>[QR CODE COMPONENT]</p>
       </header>
-      <main
-        className="flex-1 flex items-center justify-center p-4"
-        style={{ fontFamily: "Outfit Variable" }}
-      >
+      <main className="flex-1 flex items-center justify-center p-4">
         <section className="p-6 bg-white rounded-2xl max-w-96 space-y-6 shadow-xl">
           <img
             src="/images/qr-code.png"
@@ -63,11 +60,3 @@ function RouteComponent() {
     </div>
   );
 }
-
-const breadcrumbs: Breadcrumb[] = [
-  {
-    id: "0",
-    path: "/qr-code-component",
-    label: "QR CODE COMPONENT",
-  },
-];

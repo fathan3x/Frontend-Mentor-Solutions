@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogPreviewCardIndexRouteImport } from './routes/blog-preview-card/index'
 import { Route as QrCodeComponentIndexRouteImport } from './routes/qr-code-component/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogPreviewCardIndexRoute = BlogPreviewCardIndexRouteImport.update({
+  id: '/blog-preview-card/',
+  path: '/blog-preview-card/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QrCodeComponentIndexRoute = QrCodeComponentIndexRouteImport.update({
@@ -25,27 +31,31 @@ const QrCodeComponentIndexRoute = QrCodeComponentIndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/blog-preview-card/': typeof BlogPreviewCardIndexRoute
   '/qr-code-component/': typeof QrCodeComponentIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/blog-preview-card': typeof BlogPreviewCardIndexRoute
   '/qr-code-component': typeof QrCodeComponentIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/blog-preview-card/': typeof BlogPreviewCardIndexRoute
   '/qr-code-component/': typeof QrCodeComponentIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/qr-code-component/'
+  fullPaths: '/' | '/blog-preview-card/' | '/qr-code-component/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/qr-code-component'
-  id: '__root__' | '/' | '/qr-code-component/'
+  to: '/' | '/blog-preview-card' | '/qr-code-component'
+  id: '__root__' | '/' | '/blog-preview-card/' | '/qr-code-component/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlogPreviewCardIndexRoute: typeof BlogPreviewCardIndexRoute
   QrCodeComponentIndexRoute: typeof QrCodeComponentIndexRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog-preview-card/': {
+      id: '/blog-preview-card/'
+      path: '/blog-preview-card'
+      fullPath: '/blog-preview-card/'
+      preLoaderRoute: typeof BlogPreviewCardIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/qr-code-component/': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BlogPreviewCardIndexRoute: BlogPreviewCardIndexRoute,
   QrCodeComponentIndexRoute: QrCodeComponentIndexRoute,
 }
 export const routeTree = rootRouteImport
