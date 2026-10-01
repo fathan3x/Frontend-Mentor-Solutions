@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogPreviewCardIndexRouteImport } from './routes/blog-preview-card/index'
 import { Route as QrCodeComponentIndexRouteImport } from './routes/qr-code-component/index'
+import { Route as SocialLinksProfileIndexRouteImport } from './routes/social-links-profile/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,35 +29,54 @@ const QrCodeComponentIndexRoute = QrCodeComponentIndexRouteImport.update({
   path: '/qr-code-component/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SocialLinksProfileIndexRoute = SocialLinksProfileIndexRouteImport.update({
+  id: '/social-links-profile/',
+  path: '/social-links-profile/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog-preview-card/': typeof BlogPreviewCardIndexRoute
   '/qr-code-component/': typeof QrCodeComponentIndexRoute
+  '/social-links-profile/': typeof SocialLinksProfileIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog-preview-card': typeof BlogPreviewCardIndexRoute
   '/qr-code-component': typeof QrCodeComponentIndexRoute
+  '/social-links-profile': typeof SocialLinksProfileIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/blog-preview-card/': typeof BlogPreviewCardIndexRoute
   '/qr-code-component/': typeof QrCodeComponentIndexRoute
+  '/social-links-profile/': typeof SocialLinksProfileIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog-preview-card/' | '/qr-code-component/'
+  fullPaths:
+    | '/'
+    | '/blog-preview-card/'
+    | '/qr-code-component/'
+    | '/social-links-profile/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog-preview-card' | '/qr-code-component'
-  id: '__root__' | '/' | '/blog-preview-card/' | '/qr-code-component/'
+  to:
+    '/' | '/blog-preview-card' | '/qr-code-component' | '/social-links-profile'
+  id:
+    | '__root__'
+    | '/'
+    | '/blog-preview-card/'
+    | '/qr-code-component/'
+    | '/social-links-profile/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogPreviewCardIndexRoute: typeof BlogPreviewCardIndexRoute
   QrCodeComponentIndexRoute: typeof QrCodeComponentIndexRoute
+  SocialLinksProfileIndexRoute: typeof SocialLinksProfileIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +102,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QrCodeComponentIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/social-links-profile/': {
+      id: '/social-links-profile/'
+      path: '/social-links-profile'
+      fullPath: '/social-links-profile/'
+      preLoaderRoute: typeof SocialLinksProfileIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +116,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogPreviewCardIndexRoute: BlogPreviewCardIndexRoute,
   QrCodeComponentIndexRoute: QrCodeComponentIndexRoute,
+  SocialLinksProfileIndexRoute: SocialLinksProfileIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

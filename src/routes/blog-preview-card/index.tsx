@@ -8,17 +8,18 @@ export const Route = createFileRoute("/blog-preview-card/")({
 
 function RouteComponent() {
   const style = {
-    "bg-yellow": "dark:bg-[hsl(47,88%,63%)]",
+    "bg-yellow": "bg-[hsl(47,88%,63%)]",
+    "hover-text-yellow": "hover:text-[hsl(47,88%,63%)]",
     "border-gray-950": "border-2 border-[hsl(0,0%,7%)]",
     "text-gray-500": "text-[hsl(0,0%,42%)]",
     "hover-link":
-      "dark:hover:bg-neutral-950 dark:hover:text-[hsl(47,88%,63%)] font-black",
+      "hover:bg-neutral-950 hover:text-[hsl(47,88%,63%)] font-black",
     "active-link": "bg-neutral-950 text-[hsl(47,88%,63%)]",
   };
   return (
     <div
       className={cn(
-        "min-w-screen min-h-screen dark:text-neutral-950",
+        "min-w-screen min-h-screen text-neutral-950",
         style["bg-yellow"],
       )}
       style={{ fontFamily: "Figtree Variable" }}
@@ -30,7 +31,7 @@ function RouteComponent() {
         <p>&gt;</p>
         <p className={cn(style["active-link"])}>[BLOG PREVIEW CARD]</p>
       </header>
-      <main className="flex-1 flex items-center justify-center p-4">
+      <main className="flex-1 flex items-center justify-center p-6">
         <section
           className={cn(
             "p-6 bg-white rounded-xl max-w-96 space-y-6 shadow-[8px_8px_0px_1px_rgba(0,0,0,1)]",
@@ -53,7 +54,15 @@ function RouteComponent() {
             <p className="font-semibold">Published 21 Dec 2023</p>
           </article>
           <article className="space-y-2">
-            <h1 className="text-2xl font-extrabold">HTML & CSS Foundations</h1>
+            <Link
+              to="."
+              className={cn(
+                "text-2xl font-extrabold block",
+                style["hover-text-yellow"],
+              )}
+            >
+              HTML & CSS Foundations
+            </Link>
             <p className="font-medium text-gray-500">
               These languages are the backbone of every website, defining
               structure, content and presentation.

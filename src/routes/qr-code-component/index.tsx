@@ -8,17 +8,17 @@ export const Route = createFileRoute("/qr-code-component/")({
 
 function RouteComponent() {
   const style = {
-    "bg-slate-300": "dark:bg-[hsl(212,45%,89%)]",
+    "bg-slate-300": "bg-[hsl(212,45%,89%)]",
     "text-slate-900": "text-[hsl(218,44%,22%)]",
     "text-slate-500": "text-[hsl(216,15%,48%)]",
     "hover-link":
-      "dark:hover:bg-neutral-950 dark:hover:text-[hsl(212,45%,89%)] font-black",
+      "hover:bg-neutral-950 hover:text-[hsl(212,45%,89%)] font-black",
     "active-link": "bg-neutral-950 text-[hsl(212,45%,89%)]",
   };
   return (
     <div
       className={cn(
-        "min-w-screen min-h-screen dark:text-neutral-950",
+        "min-w-screen min-h-screen text-neutral-950",
         style["bg-slate-300"],
       )}
       style={{ fontFamily: "Outfit Variable" }}
@@ -30,7 +30,7 @@ function RouteComponent() {
         <p>&gt;</p>
         <p className={cn(style["active-link"])}>[QR CODE COMPONENT]</p>
       </header>
-      <main className="flex-1 flex items-center justify-center p-4">
+      <main className="flex-1 flex items-center justify-center p-6">
         <section className="p-6 bg-white rounded-2xl max-w-96 space-y-6 shadow-xl">
           <img
             src="/images/qr-code.png"
