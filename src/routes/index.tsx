@@ -25,7 +25,10 @@ function RouteComponent() {
           </div>
           <div className="space-x-2">
             <p className="inline">01</p>
-            <Link to="/blog-preview-card" className={cn(style["hover-link"])}>
+            <Link
+              to="/cool-blog-preview-card"
+              className={cn(style["hover-link"])}
+            >
               [BLOG PREVIEW CARD]
             </Link>
           </div>
