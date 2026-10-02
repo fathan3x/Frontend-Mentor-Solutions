@@ -18,24 +18,47 @@ function RouteComponent() {
         <section>
           <div className="space-x-2">
             <p className="inline">00</p>
-            <Link to="/qr-code-component" className={cn(style["hover-link"])}>
+            <a
+              href="https://fathan3x.github.io/fms-qr-code-component/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(style["hover-link"])}
+            >
               [QR CODE COMPONENT]
-            </Link>
+            </a>
           </div>
           <div className="space-x-2">
             <p className="inline">01</p>
-            <Link to="/blog-preview-card" className={cn(style["hover-link"])}>
+            <a
+              href="https://fathan3x.github.io/fms-blog-preview-card/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(style["hover-link"])}
+            >
               [BLOG PREVIEW CARD]
-            </Link>
+            </a>
           </div>
           <div className="space-x-2">
             <p className="inline">02</p>
-            <Link
-              to="/social-links-profile"
+            <a
+              href="https://fathan3x.github.io/fms-social-links-profile/"
+              target="_blank"
+              rel="noopener noreferrer"
               className={cn(style["hover-link"])}
             >
               [SOCIAL LINKS PROFILE]
-            </Link>
+            </a>
+          </div>
+          <div className="space-x-2">
+            <p className="inline">03</p>
+            <a
+              href="https://fathan3x.github.io/fms-recipe-page/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(style["hover-link"])}
+            >
+              [RECIPE PAGE]
+            </a>
           </div>
         </section>
       </main>
